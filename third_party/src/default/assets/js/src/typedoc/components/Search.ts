@@ -85,6 +85,7 @@ module typedoc.search {
     )
 
     index.field('name', {boost:10})
+    index.field('category', {boost:5})
     index.field('parent')
     index.ref('id')
 

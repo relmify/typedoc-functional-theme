@@ -1,4 +1,6 @@
 /**
+ * Modifications Copyright 2020 Relmify
+ *
  * Copyright 2019 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,6 +26,6 @@ import {
  * Based on
  * https://github.com/christopherthielen/typedoc-plugin-external-module-name
  */
-@Component({ name: 'neo-theme' })
+@Component({ name: 'functional-theme' })
 export class ExternalModuleMapPlugin extends ConverterComponent {
 }

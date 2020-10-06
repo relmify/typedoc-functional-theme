@@ -1,8 +1,10 @@
-# Neo theme for TypeDoc
+# Functional theme for TypeDoc
 
 [![npm](https://img.shields.io/npm/v/typedoc-neo-theme.svg)](https://www.npmjs.com/package/typedoc-neo-theme)
 
-This plugin contains a new theme for TypeDoc which focuses on improved readability and navigation.
+This plugin contains a flexible theme for TypeDoc that builds additional features on 
+top of typedoc-neo-theme's improved navigation and readability. Specifically, typedoc-next-theme
+adds support for displaying and filtering by category, and displaying additional tags of your choice. It .
 
 Additionally, it extends Typedoc with additional options for a richer user experience.
 
@@ -13,30 +15,70 @@ to view this theme.
 
 Visit http://typedoc.org/ to learn more about TypeDoc.
 
-## Theme
+## Installation and Configuration
 
-Build the theme by running `yarn build:theme`.
+Install via npm:
 
-After you install the module, you can use this theme in a build by running:
+`npm install -D typedoc-functional-theme`
 
-`typedoc --theme ./node_modules/typedoc-neo-theme/bin/default`
+Or yarn:
 
-## Plugin
+`yarn install typedoc-functional-theme`
 
-Build the plugin by running `yarn build:plugin`.
+Enable the theme when running from the command line:
 
-After you install the module, you can use this plugin in a build by running:
+`typedoc --options typedoc.json --theme node_modules/typedoc-functional-theme/bin/default`
 
-`typedoc --theme ./node_modules/typedoc-neo-theme/bin/default --plugin typedoc-neo-theme`
+Or you can specify the theme as a typedoc option in your `tsconfig.json` file:
 
-Alternatively it can be partially placed in the typedoc options:
+```json
+"typedocOptions": {
+    "inputFiles": [
+        "./src"
+    ],
+    "theme": "node_modules/typedoc-functional-theme/bin/default",
+    "mode": "modules",
+    "out": "docs",
+    // "out": "docs",
+    "exclude": [
+        "**/src/test/*",
+        "**/*.test.ts",
+        "**/__tests__/*",
+        "**/__mocks__/*"
+    ],
+    "excludeNotExported": true
+},
+```
 
-`typedoc --options typedoc.json --theme node_modules/typedoc-neo-theme/bin/default`
+## Theme features
 
-### Typedoc options
+### Directory-based module navigation
+
+Just like with typescript-neo-theme, the left navigation bar is automatically organized
+to group modules into directories. You can also customize what you do and don't display as a
+plugin feature.
+
+### Display tags that aren't displayed by the default themes
+
+Typedoc has specific handling for only a [narrow set of tags](https://typedoc.org/guides/doccomments/#supported-tags). Other tags are still collected and available for display, but are not displayed
+in the default themes. Even though @category is specifically supported, it is not displayed in the 
+default theme. Other tags are collected but not displayed in the default theme.
+
+### Category display and filtering
+
+Even though typedoc has specific support for the `@category` tag, it doesn't display
+categories as part of the default themes. With this theme, module-level categories
+will be displayed as badges in the left menu. It's also possible to filter the left menu
+by category to narrow down the modules to module types of particular interest.
+
+The `@category` tag can be used for items within a module or file too, and will be displayed
+there too.
+
+## Plugin features
+
 This plugin adds additional options that can be placed in your `typedoc.json` file.
 
-#### Links
+### Links
 You may want to specify additional links to appear in your header that don't point to
 reference documentation but related documentation for your platform.
 
@@ -102,8 +144,8 @@ Actions on Google Node.js project.
 
 ## License
 
-This project is based on [typedoc-default-themes](https://github.com/TypeStrong/typedoc-default-themes/) by
-[Sebastian Lenz](http://www.sebastian-lenz.de).
-
+This project is based on [typedoc-neo-theme](https://github.com/google/typedoc-neo-theme/tree/master)
+which is in turn based on [typedoc-default-themes](https://github.com/TypeStrong/typedoc-default-themes/)
+by [Sebastian Lenz](http://www.sebastian-lenz.de).
 
 Licensed under the Apache License 2.0.

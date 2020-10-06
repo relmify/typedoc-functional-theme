@@ -1,4 +1,6 @@
 /**
+ * Modifications Copyright 2020 Relmify
+ * 
  * Copyright 2019 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,6 +14,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
  */
 let { ParameterType } = require('typedoc/dist/lib/utils/options/declaration');
 let plugin = require('./bin/default/plugin')
@@ -34,6 +37,14 @@ module.exports = (PluginHost) => {
   app.options.addDeclaration({ name: 'outline', type: ParameterType.Mixed })
   /*
    * Expected array:
+   *  interface Filter {
+   *    name: string
+   *    subtitle: string
+   *  }
+   */
+  app.options.addDeclaration({ name: 'filter', type: ParameterType.Mixed })
+  /*
+   * Expected array:
    *  interface Search {
    *    name: string
    *    subtitle: string
@@ -50,5 +61,5 @@ module.exports = (PluginHost) => {
    */
   app.options.addDeclaration({ name: 'source', type: ParameterType.Mixed })
 
-  app.converter.addComponent('neo-theme', plugin.ExternalModuleMapPlugin)
+  app.converter.addComponent('functional-theme', plugin.ExternalModuleMapPlugin)
 }

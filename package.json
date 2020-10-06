@@ -1,7 +1,7 @@
 {
-  "name": "typedoc-neo-theme",
+  "name": "typedoc-functional-theme",
   "description": "Improved theme for Typedoc",
-  "version": "1.0.7",
+  "version": "0.1.0",
   "main": "index.js",
   "scripts": {
     "clean:build": "./node_modules/.bin/rimraf bin",
@@ -20,7 +20,7 @@
     "test:rebuild": "npm run clean:node_modules && npm install && npm run build"
   },
   "author": {
-    "name": "Nick Felker, based on work by Sebastian Lenz"
+    "name": "Leila Pearson, based on work by Nick Felker and Sebastian Lenz"
   },
   "license": "Apache-2.0",
   "engines": {
@@ -50,16 +50,18 @@
   },
   "keywords": [
     "typescript",
+    "functional",
+    "fp-ts",
     "documentation",
     "generator",
     "typedocplugin"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/google/typedoc-neo-theme.git"
+    "url": "git+https://github.com/relmify/typedoc-functional-theme.git"
   },
   "bugs": {
-    "url": "https://github.com/google/typedoc-neo-theme/issues"
+    "url": "https://github.com/relmify/typedoc-functional-theme/issues"
   },
-  "homepage": "https://github.com/google/typedoc-neo-theme#readme"
+  "homepage": "https://github.com/relmify/typedoc-functional-theme#readme"
 }
